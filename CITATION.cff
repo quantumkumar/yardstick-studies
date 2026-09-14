@@ -8,6 +8,11 @@ authors:
     given-names: Kumar Sumbhav
     affiliation: Quantum Learning Machines
 license: Apache-2.0
+doi: 10.5281/zenodo.22743788
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22743788
+    description: "Zenodo archive of v0.1.0"
 repository-code: "https://github.com/quantumkumar/yardstick-studies"
 keywords:
   - preregistration

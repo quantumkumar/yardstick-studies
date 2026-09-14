@@ -1,5 +1,7 @@
 # yardstick-studies
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22743788.svg)](https://doi.org/10.5281/zenodo.22743788) [![tests](https://github.com/quantumkumar/yardstick-studies/actions/workflows/tests.yml/badge.svg)](https://github.com/quantumkumar/yardstick-studies/actions/workflows/tests.yml)
+
 The study kernel behind YardStick's pre-registered studies, as a standalone package.
 It enforces the checkable half of a verifiable study:
 
@@ -18,5 +20,7 @@ pip install -e .[dev]
 yardstick init sda-003 --title "..." --llm --template paired-equivalence
 python -m pytest -q
 ```
+
+Cite as: Srivastava, K. S. (2026). yardstick-studies: a verifiable-study kernel for LLM-in-the-loop research (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.22743788
 
 Exported from the YardStick repository by `scripts/export_kernel.py`; the engine and the studies themselves are not part of this package.
