@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "yardstick-studies: a verifiable-study kernel for LLM-in-the-loop research"
+version: 0.1.0
+date-released: 2026-09-14
+authors:
+  - family-names: Srivastava
+    given-names: Kumar Sumbhav
+    affiliation: Quantum Learning Machines
+license: Apache-2.0
+repository-code: "https://github.com/quantumkumar/yardstick-studies"
+keywords:
+  - preregistration
+  - reproducibility
+  - registered reports
+  - large language models
+  - education research

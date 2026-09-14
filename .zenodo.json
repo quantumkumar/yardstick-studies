@@ -1,0 +1,8 @@
+{
+  "title": "yardstick-studies: a verifiable-study kernel for LLM-in-the-loop research",
+  "description": "Reference implementation of the verifiable-study standard: fenced data with logged reads, generated registration facts, a gate board computed from artifacts, strict results schemas, paired-equivalence and paired-comparison templates, an LLM-study kit (generation archive with content hashes, request-template hashing, pinned-model retirement check, generator-drift check, spend ledger), and replay attestations.",
+  "creators": [{"name": "Srivastava, Kumar Sumbhav", "affiliation": "Quantum Learning Machines"}],
+  "license": "Apache-2.0",
+  "upload_type": "software",
+  "keywords": ["preregistration", "reproducibility", "registered reports", "large language models", "education research"]
+}

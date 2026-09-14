@@ -1,0 +1,43 @@
+name: replay-attest
+
+# Independent replay of a study's analysis stage on a clean runner.
+# Anyone with permission to run workflows can trigger it; the attestation
+# records who ran it, on which ref, and whether the bytes matched the frozen
+# results file. For template studies the per-unit table is derived data
+# that ships in the public package; raw fenced data is never needed.
+
+on:
+  workflow_dispatch:
+    inputs:
+      study_id:
+        description: "Study directory under studies/ (e.g. sda-003)"
+        required: true
+      ref:
+        description: "Registration tag or commit to replay"
+        required: true
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install numpy scipy jsonschema
+      - name: Run the registered analysis from the archived per-unit table
+        run: |
+          PYTHONPATH=src python -m studies.cli analyze "${{ inputs.study_id }}" \
+            --partition confirmatory --commit-tag "${{ inputs.ref }}" --out /tmp/replay-results.json
+      - name: Attest
+        run: |
+          PYTHONPATH=src python -m studies.cli attest "${{ inputs.study_id }}" \
+            --results /tmp/replay-results.json --runner-kind ci --ref "${{ inputs.ref }}" \
+            --note "replay-attest workflow on a clean runner"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: replay-attestation-${{ inputs.study_id }}
+          path: studies/${{ inputs.study_id }}/output/attestations/
